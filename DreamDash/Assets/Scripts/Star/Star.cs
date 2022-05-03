@@ -13,6 +13,7 @@ public class Star : MonoBehaviour
     {
         
         rb = GetComponent<Rigidbody2D>();
+        rb.velocity = new Vector3(-moveSpeed,0,0);
 
     }
 
@@ -25,7 +26,6 @@ public class Star : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector3(0,0,0);
-        transform.Translate(-moveSpeed * Time.deltaTime, 0, 0);
+        //transform.Translate(-moveSpeed * Time.deltaTime, 0, 0);
     }
 }

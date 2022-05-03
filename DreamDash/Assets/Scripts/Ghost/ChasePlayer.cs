@@ -1,9 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ChasePlayer : MonoBehaviour
 {
+    float diffX;
+    float diffY;
+
+    float playerX;
+    float playerY;
+
+    float angle;
+    float abovePlayer;
+
+    float speed = 2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +25,28 @@ public class ChasePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    //calculate how much to change in x and y direction
+        //get player location
+        playerX = GameObject.Find("Player").transform.position.x;
+        playerY = GameObject.Find("Player").transform.position.y;
+
+        diffX = transform.position.x - playerX;
+        diffY = transform.position.x - playerY;
+
+        angle = (float)Math.Atan(diffY/diffX);
+
+        //do some cool vector linear algebra trigonometry stuff
+        diffX = (float)(Math.Cos(angle) * Math.Cos(angle) * speed);
+        diffY = (float)(Math.Sin(angle) * Math.Sin(angle) * speed);
+
+        print(angle);
         
+        if(transform.position.y > playerY)
+            abovePlayer = -1;
+        else 
+            abovePlayer = 1;
+
+        //move in x and y direction
+        transform.Translate(-diffX * Time.deltaTime, diffY *Time.deltaTime * abovePlayer, 0);
     }
 }
