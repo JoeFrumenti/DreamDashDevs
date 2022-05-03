@@ -12,7 +12,7 @@ public class ChasePlayer : MonoBehaviour
     float playerY;
 
     float angle;
-    float abovePlayer;
+    float abovePlayer = -1f;
 
     float speed = 2f;
 
@@ -30,21 +30,21 @@ public class ChasePlayer : MonoBehaviour
         playerX = GameObject.Find("Player").transform.position.x;
         playerY = GameObject.Find("Player").transform.position.y;
 
-        diffX = transform.position.x - playerX;
-        diffY = transform.position.x - playerY;
+        diffX = playerX - transform.position.x;
+        diffY = playerY - transform.position.y;
 
         angle = (float)Math.Atan(diffY/diffX);
 
         //do some cool vector linear algebra trigonometry stuff
-        diffX = (float)(Math.Cos(angle) * Math.Cos(angle) * speed);
-        diffY = (float)(Math.Sin(angle) * Math.Sin(angle) * speed);
+        diffX = (float)(Math.Cos(angle) * speed);
+        diffY = (float)(Math.Sin(angle) * speed);
 
         print(angle);
         
-        if(transform.position.y > playerY)
-            abovePlayer = -1;
-        else 
-            abovePlayer = 1;
+        // if(transform.position.y > playerY)
+        //     abovePlayer = 1;
+        // else 
+        //     abovePlayer = -1;
 
         //move in x and y direction
         transform.Translate(-diffX * Time.deltaTime, diffY *Time.deltaTime * abovePlayer, 0);
