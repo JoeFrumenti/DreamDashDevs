@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ExplodeOnClick : MonoBehaviour
 {
+
+    Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -20,10 +22,14 @@ public class ExplodeOnClick : MonoBehaviour
             
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
             if (hit.collider != null) {
-                print("clicked");
+                anim.Play("Explode");
             }
         }
     }
 
+    void die()
+    {
+        Destroy(this.gameObject);
+    }
     
 }

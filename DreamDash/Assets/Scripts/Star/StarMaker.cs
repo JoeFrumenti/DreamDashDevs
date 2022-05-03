@@ -6,16 +6,16 @@ public class StarMaker : MonoBehaviour
 {
     //Timers
     float starTimer = 0.5f;
+    float difficultyTimer;
 
 
     //Timer caps
     float starTimerReset;
-    float difficultyTimer;
+    float difficultyTimerLimit = 5f;
     
     //Difficulty caps
     float maxStarSpeed = 10f;
     float spawnSpeedLimit = 3f;
-    float difficultyTimerLimit = 10f;
 
     //difficulty incremental values
     float starSpeedIncrement = 1f;

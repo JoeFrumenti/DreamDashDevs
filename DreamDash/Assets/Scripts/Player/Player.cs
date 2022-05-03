@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -12,10 +13,14 @@ public class Player : MonoBehaviour
 
 
     Rigidbody2D body;
+    Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+
+        anim = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -37,6 +42,7 @@ public class Player : MonoBehaviour
         body.velocity = new Vector2(body.velocity.x, playerSpeed * input);
     }
 
+    
 
     //movement code
     void updateVInput()
@@ -72,5 +78,28 @@ public class Player : MonoBehaviour
             }
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+        if(collision.gameObject.layer == 7)
+        {
+            anim.Play("Explode");
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == 8)
+        {
+            anim.Play("Explode");
+        }
+    }
+
     
+
+    void die()
+    {
+        Destroy(this.gameObject);
+        SceneManager.LoadScene("GameOver");
+    }
 }

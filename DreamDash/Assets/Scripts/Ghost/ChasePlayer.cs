@@ -39,7 +39,6 @@ public class ChasePlayer : MonoBehaviour
         diffX = (float)(Math.Cos(angle) * speed);
         diffY = (float)(Math.Sin(angle) * speed);
 
-        print(angle);
         
         // if(transform.position.y > playerY)
         //     abovePlayer = 1;
