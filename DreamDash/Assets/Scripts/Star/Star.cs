@@ -5,15 +5,14 @@ using UnityEngine;
 public class Star : MonoBehaviour
 {
     public float moveSpeed = 10f;
-    internal Rigidbody2D rb;
+    Rigidbody2D rb;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        
         rb = GetComponent<Rigidbody2D>();
-        
-        
 
     }
 
@@ -26,6 +25,7 @@ public class Star : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        rb.velocity = new Vector3(0,0,0);
         transform.Translate(-moveSpeed * Time.deltaTime, 0, 0);
     }
 }

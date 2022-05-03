@@ -64,7 +64,7 @@ public class StarMaker : MonoBehaviour
 
     void spawnStar(float newSpeed)
     {
-        Instantiate(starPrefab, new Vector3(15, Random.Range(-6f, 6f), 0), Quaternion.identity);
+        Instantiate(starPrefab, new Vector3(15, Random.Range(-5f, 5f), 0), Quaternion.identity);
         starPrefab.GetComponent<Star>().moveSpeed = newSpeed;
         
     }
