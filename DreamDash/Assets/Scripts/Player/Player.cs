@@ -99,6 +99,7 @@ public class Player : MonoBehaviour
 
     void die()
     {
+        GameObject.FindWithTag("Scorekeep").GetComponent<Scorekeep>().isCounting = false;
         Destroy(this.gameObject);
         SceneManager.LoadScene("GameOver");
     }
