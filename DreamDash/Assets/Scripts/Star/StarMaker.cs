@@ -21,7 +21,7 @@ public class StarMaker : MonoBehaviour
     float starSpeedIncrement = 1f;
 
 
-    float starSpeed = 10f;
+    float starSpeed = 5f;
     float currentSpeed;
     
 
