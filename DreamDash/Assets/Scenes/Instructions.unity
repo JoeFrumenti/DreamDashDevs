@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 364430467}
   - component: {fileID: 364430466}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Alora
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 197, y: -39}
-  m_SizeDelta: {x: 209.3355, y: 217.4615}
+  m_AnchoredPosition: {x: 174.6653, y: -6.8186}
+  m_SizeDelta: {x: 271.0661, y: 293.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &364430466
 MonoBehaviour:
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 28e4d2947a2d30545961c428f626dda0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aeb814abf0734104aa7387f03ce21928, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
