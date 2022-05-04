@@ -8,18 +8,22 @@ public class Player : MonoBehaviour
     float speedY;
     float playerSpeed = 7f;
     float input;
-    float accel = 3f;
+    float accel = 2f;
     int facing = 1;
+    bool touchingWall = false;
 
 
     Rigidbody2D body;
     Animator anim;
+    AudioSource audioData;
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
 
         anim = GetComponent<Animator>();
+
+        audioData = GetComponent<AudioSource>();
 
     }
 
@@ -48,34 +52,36 @@ public class Player : MonoBehaviour
     void updateVInput()
     {
         if (input >= -1 && input <= 1)
+        {
+
+            if (Input.GetAxisRaw("Vertical") != 0)
             {
-
-                if (Input.GetAxisRaw("Vertical") != 0)
-                {
-                    input += accel * Input.GetAxisRaw("Vertical") * Time.deltaTime;
-                }
-
-                if (Input.GetAxisRaw("Vertical") == 0)
-                {
-                    input -= accel * facing * Time.deltaTime;
-                }
-
-                if (input < -1)
-                    input = -1;
-
-                if (input > 1)
-                    input = 1;
-
-
+                input += accel * Input.GetAxisRaw("Vertical") * Time.deltaTime;
             }
-            else
+
+            if (Input.GetAxisRaw("Vertical") == 0)
             {
-                if (input < -1)
-                    input = -1;
-                if (input > 1)
-                    input = 1;
-
+                input -= accel * facing * Time.deltaTime;
             }
+
+            if (input < -1)
+                input = -1;
+
+            if (input > 1)
+                input = 1;
+
+
+        }
+        else
+        {
+            if (input < -1)
+                input = -1;
+            if (input > 1)
+                input = 1;
+
+        }
+        if(touchingWall)
+            input = accel * Input.GetAxisRaw("Vertical") * Time.deltaTime;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -86,6 +92,10 @@ public class Player : MonoBehaviour
             GameObject.FindWithTag("Scorekeep").GetComponent<Scorekeep>().isCounting = false;
             anim.Play("Explode");
         }
+        if(collision.gameObject.layer == 9)
+        {
+            touchingWall = true;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -95,6 +105,11 @@ public class Player : MonoBehaviour
             GameObject.FindWithTag("Scorekeep").GetComponent<Scorekeep>().isCounting = false;
             anim.Play("Explode");
         }
+        
+    }
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        touchingWall = false;
     }
 
     
@@ -104,5 +119,10 @@ public class Player : MonoBehaviour
         
         Destroy(this.gameObject);
         SceneManager.LoadScene("GameOver");
+    }
+
+    void playDeathNoise()
+    {
+        audioData.Play();
     }
 }

@@ -19,11 +19,13 @@ public class ChasePlayer : MonoBehaviour
     float speed = 3f;
 
     Animator anim;
+    AudioSource audioData;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        audioData = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -68,5 +70,10 @@ public class ChasePlayer : MonoBehaviour
     void die()
     {
         Destroy(this.gameObject);
+    }
+
+    void playDeathNoise()
+    {
+        audioData.Play();
     }
 }
