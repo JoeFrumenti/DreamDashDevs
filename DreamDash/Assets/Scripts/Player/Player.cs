@@ -83,6 +83,7 @@ public class Player : MonoBehaviour
         
         if(collision.gameObject.layer == 7)
         {
+            GameObject.FindWithTag("Scorekeep").GetComponent<Scorekeep>().isCounting = false;
             anim.Play("Explode");
         }
     }
@@ -91,6 +92,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.layer == 8)
         {
+            GameObject.FindWithTag("Scorekeep").GetComponent<Scorekeep>().isCounting = false;
             anim.Play("Explode");
         }
     }
@@ -99,7 +101,7 @@ public class Player : MonoBehaviour
 
     void die()
     {
-        GameObject.FindWithTag("Scorekeep").GetComponent<Scorekeep>().isCounting = false;
+        
         Destroy(this.gameObject);
         SceneManager.LoadScene("GameOver");
     }
