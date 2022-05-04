@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     float speedY;
-    float playerSpeed = 5f;
+    float playerSpeed = 7f;
     float input;
     float accel = 3f;
     int facing = 1;

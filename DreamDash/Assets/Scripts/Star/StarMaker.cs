@@ -12,11 +12,11 @@ public class StarMaker : MonoBehaviour
     //Timer caps
     float starTimerReset;
     float difficultyTimerLimit = 5f;
-    float spawnSpeedLimit = 1f;
+    float spawnSpeedLimit = 3f;
     
     //Difficulty caps
     float maxStarSpeed = 15f;
-    float minSpawnSpeed = 1f;
+    float minSpawnSpeed = 1.5f;
 
     //difficulty incremental values
     float starSpeedIncrement = 1f;
@@ -48,9 +48,9 @@ public class StarMaker : MonoBehaviour
         {
             starTimer -= spawnSpeedLimit;
             currentSpeed = starSpeed;
-            // spawnStar(currentSpeed);
-            // spawnStar(currentSpeed);
-            // spawnStar(currentSpeed);
+            spawnStar(currentSpeed);
+            spawnStar(currentSpeed);
+            spawnStar(currentSpeed);
             spawnGhost();
         }
 
@@ -74,7 +74,7 @@ public class StarMaker : MonoBehaviour
     {
         //Instantiate(starPrefab, new Vector3(15, Random.Range(-5f, 5f), 0), Quaternion.identity);
         GameObject obj = (GameObject)Instantiate(starPrefab, new Vector3(15, Random.Range(-5f, 5f), 0), Quaternion.identity);
-         obj.GetComponent<Rigidbody2D>().velocity = new Vector3(-starSpeed, 0, 0);
+        obj.GetComponent<Rigidbody2D>().velocity = new Vector3(-starSpeed, 0, 0);
      
     }
 

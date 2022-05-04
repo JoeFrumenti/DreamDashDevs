@@ -11,15 +11,19 @@ public class ChasePlayer : MonoBehaviour
     float playerX;
     float playerY;
 
+    float hitBoxSize = 1f;
+
     float angle;
     float abovePlayer = -1f;
 
-    float speed = 2f;
+    float speed = 3f;
+
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -47,5 +51,22 @@ public class ChasePlayer : MonoBehaviour
 
         //move in x and y direction
         transform.Translate(-diffX * Time.deltaTime, diffY *Time.deltaTime * abovePlayer, 0);
+
+         if (Input.GetMouseButtonDown(0)) 
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+            
+            if(mousePos.x > transform.position.x - hitBoxSize &&
+                mousePos.x < transform.position.x + hitBoxSize &&
+                mousePos.y > transform.position.y - hitBoxSize &&
+                mousePos.y < transform.position.y + hitBoxSize)
+                    anim.Play("Explode");
+        }
+    }
+
+    void die()
+    {
+        Destroy(this.gameObject);
     }
 }

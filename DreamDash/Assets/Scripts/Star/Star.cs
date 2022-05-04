@@ -5,7 +5,7 @@ using UnityEngine;
 public class Star : MonoBehaviour
 {
     //[System.NonSerialized]
-    public float moveSpeed;
+    internal float moveSpeed;
     public Rigidbody2D rb;
 
 
@@ -14,7 +14,6 @@ public class Star : MonoBehaviour
     {
         
         rb = GetComponent<Rigidbody2D>();
-        //rb.velocity = new Vector3(-moveSpeed,0,0);
 
     }
 
