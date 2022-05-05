@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CloudScrolling : MonoBehaviour
 {
+
+    [SerializeField]
+    float leftbound = -30f;
+    float rightbound = 45f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,10 +19,10 @@ public class CloudScrolling : MonoBehaviour
     {
         transform.Translate(-10 * Time.deltaTime, 0, 0);
 
-        if(transform.position.x < -27)
+        if(transform.position.x < -25f)
         {
             print(transform.position.x);
-            transform.position = new Vector3(24f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(27f, transform.position.y, transform.position.z);
             print(transform.position.x);
         }
     }

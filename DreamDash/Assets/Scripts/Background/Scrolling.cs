@@ -15,10 +15,10 @@ public class Scrolling : MonoBehaviour
     {
         transform.Translate(-5 * Time.deltaTime, 0, 0);
 
-        if(transform.position.x < -26.11f)
+        if(transform.position.x < -23.11f)
         {
             print(transform.position.x);
-            transform.position = new Vector3(25f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(28f, transform.position.y, transform.position.z);
             print(transform.position.x);
         }
     }
