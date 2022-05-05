@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Scrolling : MonoBehaviour
+public class CloudScrolling : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,12 +13,12 @@ public class Scrolling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(-5 * Time.deltaTime, 0, 0);
+        transform.Translate(-10 * Time.deltaTime, 0, 0);
 
-        if(transform.position.x < -26.11f)
+        if(transform.position.x < -27)
         {
             print(transform.position.x);
-            transform.position = new Vector3(25f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(24f, transform.position.y, transform.position.z);
             print(transform.position.x);
         }
     }

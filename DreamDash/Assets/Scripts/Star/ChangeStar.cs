@@ -1,23 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Score : MonoBehaviour
+public class ChangeStar : MonoBehaviour
 {
+    public SpriteRenderer spriteRenderer;
+    public Sprite newSprite1;
+    public Sprite newSprite2;
+    public Sprite newSprite3;
 
-    public Text scoreText;
-    public GameObject scorekeep;
     // Start is called before the first frame update
     void Start()
     {
-        
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Score: " + GameObject.FindWithTag("Scorekeep").GetComponent<Scorekeep>().score.ToString();
+        
     }
 }

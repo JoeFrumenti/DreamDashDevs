@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
 
         audioData = GetComponent<AudioSource>();
 
+        //transform.position = new Vector3(Screen.width/16, transform.position.y, transform.position.z);
+
     }
 
     // Update is called once per frame
